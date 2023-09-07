@@ -5,6 +5,22 @@ const UserList = [
     username: "johnsmith123",
     age: 28,
     nationality: "AMERICAN",
+    friends: [
+      {
+        id: "2",
+        name: "Emily Johnson",
+        username: "emilyj",
+        age: 24,
+        nationality: "CANADIAN",
+      },
+      {
+        id: "7",
+        name: "James Taylor",
+        username: "jamest",
+        age: 31,
+        nationality: "CANADIAN",
+      },
+    ],
   },
   {
     id: "2",
@@ -12,6 +28,15 @@ const UserList = [
     username: "emilyj",
     age: 24,
     nationality: "CANADIAN",
+    friends: [
+      {
+        id: "1",
+        name: "John Smith",
+        username: "johnsmith123",
+        age: 28,
+        nationality: "AMERICAN",
+      },
+    ],
   },
   {
     id: "3",
@@ -47,6 +72,15 @@ const UserList = [
     username: "jamest",
     age: 31,
     nationality: "CANADIAN",
+    friends: [
+      {
+        id: "1",
+        name: "John Smith",
+        username: "johnsmith123",
+        age: 28,
+        nationality: "AMERICAN",
+      },
+    ],
   },
   {
     id: "8",
@@ -71,4 +105,67 @@ const UserList = [
   },
 ];
 
-module.exports = { UserList };
+const MovieList = [
+  {
+    id: "1",
+    title: "Inception",
+    year: 2010,
+    isInTheaters: false,
+  },
+  {
+    id: "2",
+    title: "The Dark Knight",
+    year: 2008,
+    isInTheaters: false,
+  },
+  {
+    id: "3",
+    title: "Avatar",
+    year: 2009,
+    isInTheaters: false,
+  },
+  {
+    id: "4",
+    title: "Interstellar",
+    year: 2014,
+    isInTheaters: false,
+  },
+  {
+    id: "5",
+    title: "Jurassic Park",
+    year: 1993,
+    isInTheaters: false,
+  },
+  {
+    id: "6",
+    title: "Eternal Sunshine of the Spotless Mind",
+    year: 2004,
+    isInTheaters: false,
+  },
+  {
+    id: "7",
+    title: "The Shawshank Redemption",
+    year: 1994,
+    isInTheaters: false,
+  },
+  {
+    id: "8",
+    title: "Pulp Fiction",
+    year: 1994,
+    isInTheaters: false,
+  },
+  {
+    id: "9",
+    title: "Gladiator",
+    year: 2000,
+    isInTheaters: false,
+  },
+  {
+    id: "10",
+    title: "The Matrix",
+    year: 1999,
+    isInTheaters: false,
+  },
+];
+
+module.exports = { UserList, MovieList };
