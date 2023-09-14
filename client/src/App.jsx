@@ -9,7 +9,7 @@ export default function App() {
 
   return (
     <ApolloProvider client={client}>
-      <h2>GraphQL Client</h2>
+      <h2 className="title">GraphQL Client</h2>
       <DisplayData />
     </ApolloProvider>
   );

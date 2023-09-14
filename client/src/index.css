@@ -55,6 +55,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.title {
+  text-align: center;
+}
+
 table {
   border-collapse: collapse;
   margin: 1em;
@@ -69,6 +73,29 @@ th {
 
 th {
   text-transform: capitalize;
+}
+
+.wrapper {
+  display: grid;
+  width: 70vw;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: center;
+}
+
+.search-movie {
+  margin-top: 15%;
+}
+
+.search-movie .input-container {
+  display: flex;
+  height: max-content;
+  gap: 3%;
+}
+
+input {
+  border-radius: 0.2em;
+  padding: 2%;
+  border: none;
 }
 
 @media (prefers-color-scheme: light) {
