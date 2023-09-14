@@ -26,7 +26,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -53,6 +53,22 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 1em;
+}
+
+td,
+th {
+  border: 0.1rem solid #434343;
+  padding: 0.5em;
+  text-align: center;
+}
+
+th {
+  text-transform: capitalize;
 }
 
 @media (prefers-color-scheme: light) {
