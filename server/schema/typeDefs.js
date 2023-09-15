@@ -52,6 +52,7 @@ const typeDefs = gql`
     FRENCH
     SPANISH
     MEXICAN
+    NEPALI
   }
 `;
 

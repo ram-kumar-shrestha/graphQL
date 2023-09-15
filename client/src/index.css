@@ -90,14 +90,22 @@ th {
   display: flex;
   height: max-content;
   gap: 3%;
+  margin-block: 1em;
 }
 
 input {
   border-radius: 0.2em;
   padding: 2%;
   border: none;
+  margin: 0.5em;
+  height: 2em;
 }
 
+.input-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 1em;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

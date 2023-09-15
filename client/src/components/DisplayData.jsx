@@ -1,6 +1,7 @@
 import { useQuery, useLazyQuery, gql } from "@apollo/client";
 import Table from "./Table";
 import { useState } from "react";
+import MutateData from "./MutateData";
 
 const GET_USERS = gql`
   query GetAllUsers {
@@ -35,7 +36,7 @@ const GET_MOVIE_BY_NAME = gql`
 
 export default function DisplayData() {
   const [movieSearched, setMovieSearched] = useState();
-  const { data, loading, error } = useQuery(GET_USERS);
+  const { data, loading, error, refetch: refetchUsers } = useQuery(GET_USERS);
   const { data: movieData, loading: movieLoading } = useQuery(GET_MOVIES);
   const [fetchMovie, { data: movieSearchedData, error: movieSearchedError }] =
     useLazyQuery(GET_MOVIE_BY_NAME);
@@ -47,15 +48,21 @@ export default function DisplayData() {
     <>
       <div className="wrapper">
         <div className="tables">
-          <Table tdata={data?.users} tableTitle="Users" tdloading={loading} />
           <Table
-            tdata={movieData?.movies}
+            tdata={data?.users.slice().reverse()}
+            tableTitle="Users"
+            tdloading={loading}
+          />
+          <Table
+            tdata={movieData?.movies.slice().reverse()}
             tableTitle="Movies"
             tdloading={movieLoading}
           />
         </div>
 
         <div className="search-movie">
+          <MutateData refetch={refetchUsers} />
+
           <div className="input-container">
             <input
               type="text"
