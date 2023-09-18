@@ -19,7 +19,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User!]!
+    users: UsersResult
     user(id: ID!): User
     movies: [Movie!]!
     movie(title: String!): Movie
@@ -54,6 +54,15 @@ const typeDefs = gql`
     MEXICAN
     NEPALI
   }
+  type UsersSuccessfulResult {
+    users: [User!]!
+  }
+
+  type UsersErrorResult {
+    message: String!
+  }
+
+  union UsersResult = UsersSuccessfulResult | UsersErrorResult
 `;
 
 module.exports = { typeDefs };

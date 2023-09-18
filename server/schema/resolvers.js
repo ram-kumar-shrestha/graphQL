@@ -4,12 +4,19 @@ const _ = require("lodash");
 const resolvers = {
   Query: {
     users: () => {
-      return UserList;
+      if (UserList) return { users: UserList };
+
+      return {
+        message: "No users found",
+      };
     },
-    user: (parent, args) => {
+    user: (parent, args, context, info) => {
       const id = args.id;
 
       const user = _.find(UserList, { id });
+
+      // console.log(context.req.headers);
+      // console.log(info);
 
       return user;
     },
@@ -26,13 +33,15 @@ const resolvers = {
     },
   },
   User: {
-    favoriteMovies: () => {
+    favoriteMovies: (parent) => {
+      // console.log(parent);
       return _.filter(
         MovieList,
         (movie) => movie.year > 2000 && movie.year < 2010
       );
     },
   },
+
   Mutation: {
     createUser: (parent, args) => {
       const input = args.input;
@@ -64,6 +73,16 @@ const resolvers = {
       _.remove(UserList, user);
 
       return user;
+    },
+  },
+
+  UsersResult: {
+    __resolveType(obj, context, info) {
+      if (obj.message) {
+        return "UsersErrorResult";
+      }
+
+      return "UsersSuccessfulResult";
     },
   },
 };
